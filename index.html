@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Web Dev Tools/Resources</title>
 <style>
 	body {
@@ -29,6 +30,7 @@
     	position: relative;
     	margin: 10px auto;
     	max-width: 350px;
+        cursor: pointer;
 	}
 
     
@@ -62,6 +64,10 @@
     
     .special > a {
     	font-weight: bold;
+    }
+    
+    div ul {
+    	display: none;
     }
 </style>
 </head>
@@ -116,6 +122,14 @@
 			</ul>
 		</div>
         <div>
+			<h3>GLASSMORPHISM</h3>
+			<ul>
+				<li><a href="https://ui.glass/generator/">Customizable Glassmorphism Generator</a></li>
+                <li><a href="https://hype4.academy/tools/glassmorphism-generator">Basic Glassmorphism Generator 1</a></li>
+                <li><a href="https://css.glass/">Basic Glassmorphism Generator 2</a></li>
+			</ul>
+		</div>
+        <div>
         	<h3>SHADOWS</h3>
             <ul>
             	<li><a href="https://getcssscan.com/css-box-shadow-examples">CSS Shadow Samples</a></li>
@@ -166,4 +180,32 @@
 		</ul>
 	</div>
 </body>
+<script>
+$(document).ready(function() {
+    $("h2").click(function(event) {
+        event.stopPropagation(); // Stop event propagation to prevent hiding parent divs
+
+        var $content = $(this).next();
+
+        if ($content.is(":visible")) {
+            $content.slideUp("slow");
+        } else {
+            $content.slideDown("slow");
+        }
+    });
+
+    $("h3").click(function(event) {
+        event.stopPropagation(); // Stop event propagation to prevent hiding parent divs
+
+        var $content = $(this).next();
+
+        if ($content.is(":visible")) {
+            $content.slideUp("slow");
+        } else {
+            $content.slideDown("slow");
+        }
+    });
+});
+</script>
+
 </html>
